@@ -1,10 +1,20 @@
-import HomePage from "@/components/pages/home/HomePage";
+import Articles from "@/components/fragments/Articles"
+import Features from "@/components/fragments/Features"
+import Gallery from "@/components/fragments/Gallery"
+import Hero from "@/components/fragments/Hero"
+import ServicesSection from "@/components/fragments/ServicesSection"
+import Wisata from "@/components/fragments/Wisata"
 
-
-export default function Home() {
+const HomePage = () => {
   return (
-    <>
-      <HomePage/>
-    </>
-  );
+    <main>
+      <Hero />
+      <Wisata />
+      <Features />
+      <Gallery />
+      <ServicesSection />
+      <Articles />
+    </main>
+  )
 }
+export default HomePage

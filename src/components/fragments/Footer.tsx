@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="container mx-auto">
                 <div className="container mx-auto border-b-2 py-5 px-4">
                     <div className="flex flex-col lg:flex-row justify-around items-center">
-                        <img className="w-[25vw] md:w-[16vw]" src="img/logonya.png" alt="" />
+                        <img className="w-[25%] md:w-[16%]" src="img/logonya.png" alt="" />
                         <p className="text-base lg:text-lg text-center font-medium py-5 text-white">Explore Jawa Timur With
                             Full Memories
                         </p>
@@ -45,10 +45,10 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="container mx-auto border-b-2 py-10 flex flex-col lg:flex-row justify-evenly">
+                <div className="container mx-auto border-b-2 pt-8 flex flex-col lg:flex-row justify-evenly">
                     <nav className="px-2 text-center lg:text-left">
                         <h2 className="text-lg text-white font-bold">TOUR</h2>
-                        <ul className="mt-6 mb-10">
+                        <ul className="mb-10">
                             <li className="text-lg py-2 hover:text-neutral-50"><a href="">Surabaya</a></li>
                             <li className="text-lg py-2 hover:text-neutral-50"><a href="">Malang</a></li>
                             <li className="text-lg py-2 hover:text-neutral-50"><a href="">Probolinggo</a></li>
@@ -56,14 +56,14 @@ const Footer = () => {
                             <li className="text-lg py-2 hover:text-neutral-50"><a href="">Blitar</a></li>
                         </ul>
                         <h2 className="text-lg text-white font-bold">SERVICE</h2>
-                        <ul className="mt-6 mb-10">
+                        <ul className="mb-10">
                             <li className="text-lg py-2 hover:text-neutral-50"><a href="">Car Hire</a></li>
                             <li className="text-lg py-2 hover:text-neutral-50"><a href="">Package Tour</a></li>
                         </ul>
                     </nav>
                     <nav className="px-2 text-center lg:text-left">
                         <h2 className="text-lg text-white font-bold">INFORMATION</h2>
-                        <ul className="mt-6 mb-10">
+                        <ul className="mb-10">
                             <li className="text-lg py-2 hover:text-neutral-50"><a href="">About Us</a></li>
                             <li className="text-lg py-2 hover:text-neutral-50"><a href="">Blog</a></li>
                             <li className="text-lg py-2 hover:text-neutral-50"><a href="">Kebijakan Privasi</a></li>
@@ -73,7 +73,7 @@ const Footer = () => {
                     </nav>
                     <nav className="px-2 text-center">
                         <h2 className="text-lg text-white font-bold">JATRIP - Macroma Media</h2>
-                        <p className="mt-6 hover:text-neutral-50 hover:underline hover:underline-offset-2"><a href="">Office No.
+                        <p className="mt-4 hover:text-neutral-50 hover:underline hover:underline-offset-2"><a href="">Office No.
                             56,
                             Jalan Raya Pakisaji, Kabupaten Malang, Jawa Timur(65162)</a></p>
                         <ul className="flex flex-col lg:block items-center mt-6 mb-10">

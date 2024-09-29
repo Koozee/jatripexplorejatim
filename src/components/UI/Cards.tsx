@@ -5,7 +5,7 @@ const Cards = () => {
     const [data, setData] = useState(null);
 
     useEffect(() => {
-        fetch(`/data/listWisata.json`)
+        fetch(`https://66bc77c324da2de7ff6aa948.mockapi.io/api/jatrip/wisata`)
             .then(response => response.json())
             .then(data => setData(data))
             .catch(error => console.error('Error fetching data:', error));

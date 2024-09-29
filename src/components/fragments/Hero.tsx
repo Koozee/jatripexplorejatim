@@ -1,6 +1,6 @@
 const Hero = () => {
     return (
-        <main
+        <article
             className="bg-cover bg-fixed bg-no-repeat w-screen h-screen flex flex-col md:flex-row justify-center items-center md:justify-start md:py-96"
             style={{ backgroundImage: "url('/img/background/bgmain.jpg')" }}
         >
@@ -29,7 +29,7 @@ const Hero = () => {
                         src="/img/icons/logos_tiktok-icon.svg" alt="" /></a></li>
                 </ul>
             </div>
-        </main>
+        </article>
     )
 }
 export default Hero
