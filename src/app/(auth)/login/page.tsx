@@ -1,7 +1,31 @@
 "use client"
 
-import Link from "next/link"
+import { FormEvent, useState } from "react";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+
 const LoginPage = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState("");
+    const router = useRouter();
+
+    const handleSubmit = async (formData: FormData) => {
+        const res = await signIn("credentials", {
+            email: formData.get("email"),
+            password: formData.get("password"),
+            redirect: false,
+        });
+        if (res?.error) {
+            setError(res.error as string);
+        }
+        if (res?.ok) {
+            return router.push("/");
+        }
+    };
+
+
     return (
         <main className="bg-fixed bg-cover w-full h-screen flex flex-col items-center justify-center px-4" style={{ backgroundImage: "url('/img/bg-auth.jpg')" }}>
             <div className="max-w-md w-full text-white space-y-5">
@@ -12,17 +36,17 @@ const LoginPage = () => {
                     </div>
                 </div>
                 <form
-                    onSubmit={(e) => e.preventDefault()}
+                    action={handleSubmit}
                     className="space-y-5"
                 >
+                    {error && <div className="text-black">{error}</div>}
                     <div>
                         <label className="font-medium">
                             Email
                         </label>
                         <input
                             type="email"
-                            required
-                            className="w-full mt-2 px-3 py-2 font-medium bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                            className="w-full mt-2 px-3 py-2 font-medium bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg" name="email" value={email} onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
                     <div>
@@ -31,8 +55,8 @@ const LoginPage = () => {
                         </label>
                         <input
                             type="password"
-                            required
-                            className="w-full mt-2 px-3 py-2 font-medium bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+
+                            className="w-full mt-2 px-3 py-2 font-medium bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg" name="password" value={password} onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
                     <div className="flex items-center justify-between text-sm">
@@ -55,7 +79,7 @@ const LoginPage = () => {
                 </form>
                 <button className="w-full flex items-center justify-center gap-x-3 py-2.5 border rounded-lg text-sm font-medium hover:bg-gray-50 hover:text-black duration-150 active:bg-gray-100">
                     <svg className="w-5 h-5" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_17_40)">
+                        <g clipPath="url(#clip0_17_40)">
                             <path d="M47.532 24.5528C47.532 22.9214 47.3997 21.2811 47.1175 19.6761H24.48V28.9181H37.4434C36.9055 31.8988 35.177 34.5356 32.6461 36.2111V42.2078H40.3801C44.9217 38.0278 47.532 31.8547 47.532 24.5528Z" fill="#4285F4" />
                             <path d="M24.48 48.0016C30.9529 48.0016 36.4116 45.8764 40.3888 42.2078L32.6549 36.2111C30.5031 37.675 27.7252 38.5039 24.4888 38.5039C18.2275 38.5039 12.9187 34.2798 11.0139 28.6006H3.03296V34.7825C7.10718 42.8868 15.4056 48.0016 24.48 48.0016Z" fill="#34A853" />
                             <path d="M11.0051 28.6006C9.99973 25.6199 9.99973 22.3922 11.0051 19.4115V13.2296H3.03298C-0.371021 20.0112 -0.371021 28.0009 3.03298 34.7825L11.0051 28.6006Z" fill="#FBBC04" />

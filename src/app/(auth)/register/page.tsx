@@ -1,7 +1,32 @@
 "use client"
-import Link from "next/link"
+import { FormEvent, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { register } from "@/actions/register";
 
-const LoginPage = () => {
+const RegisterPage = () => {
+    // const [email, setEmail] = useState('');
+    // const [username, setUsername] = useState('');
+    // const [password, setPassword] = useState('');
+    const [error, setError] = useState<string>();
+    const router = useRouter();
+    const ref = useRef<HTMLFormElement>(null);
+
+    const handleSubmit = async (formData: FormData) => {
+        const r = await register({
+            email: formData.get("email"),
+            password: formData.get("password"),
+            name: formData.get("name"),
+        });
+        ref.current?.reset();
+        if (r?.error) {
+            setError(r.error);
+            return;
+        } else {
+            return router.push("/login");
+        }
+    };
+
     return (
         <main className="bg-fixed bg-cover w-full h-full flex flex-col items-center justify-center px-4" style={{ backgroundImage: "url('/img/bg-auth.jpg')" }}>
             <div className="max-w-md w-full text-white space-y-5">
@@ -11,10 +36,11 @@ const LoginPage = () => {
                         <h3 className="text-2xl font-bold sm:text-3xl">Register New Account Traveller</h3>
                     </div>
                 </div>
-                <form
-                    onSubmit={(e) => e.preventDefault()}
+                <form ref={ref}
+                    action={handleSubmit}
                     className="space-y-5"
                 >
+                    {error && <div className="">{error}</div>}
                     <div>
                         <label className="font-medium">
                             Email
@@ -22,7 +48,17 @@ const LoginPage = () => {
                         <input
                             type="email"
                             required
-                            className="w-full mt-2 px-3 py-2 font-medium bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                            className="w-full mt-2 px-3 py-2 font-medium bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg" name="email"
+                        />
+                    </div>
+                    <div>
+                        <label className="font-medium">
+                            Username
+                        </label>
+                        <input
+                            type="text"
+                            required
+                            className="w-full mt-2 px-3 py-2 font-medium bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg" name="name"
                         />
                     </div>
                     <div>
@@ -32,10 +68,10 @@ const LoginPage = () => {
                         <input
                             type="password"
                             required
-                            className="w-full mt-2 px-3 py-2 font-medium bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                            className="w-full mt-2 px-3 py-2 font-medium bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg" name="password"
                         />
                     </div>
-                    <div>
+                    {/* <div>
                         <label className="font-medium">
                             Confirm Password
                         </label>
@@ -44,7 +80,7 @@ const LoginPage = () => {
                             required
                             className="w-full mt-2 px-3 py-2 font-medium bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                         />
-                    </div>
+                    </div> */}
                     <button
                         className="w-full px-4 py-2 text-white font-medium bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-600 rounded-lg duration-150"
                     >
@@ -72,4 +108,4 @@ const LoginPage = () => {
         </main>
     )
 }
-export default LoginPage
+export default RegisterPage

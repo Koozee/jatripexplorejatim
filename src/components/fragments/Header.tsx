@@ -2,10 +2,35 @@
 
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
-
+import { signOut, useSession } from "next-auth/react";
 const Header = () => {
     const router = useRouter()
     const pathname = usePathname()
+    const { status } = useSession();
+    const showSession = () => {
+        if (status === "authenticated") {
+            return (
+                <li className="font-semibold">
+                    <div className="flex gap-8">
+                        <button type="button" onClick={() => {
+                            signOut({ redirect: false }).then(() => {
+                                router.push("/");
+                            });
+                        }} className="border-2 border-blue-900 px-8 py-2 hover:bg-blue-800 transition-all ease-linear duration-150">Logout</button>
+                    </div>
+                </li>
+            )
+        } else {
+            return (
+                <li className="font-semibold">
+                    <div className="flex gap-8">
+                        <button type="button" onClick={() => router.push('/login')} className="border-2 border-blue-900 px-8 py-2 hover:bg-blue-800 transition-all ease-linear duration-150">Masuk</button>
+                        <button type="button" onClick={() => router.push('/register')} className="bg-blue-800/90 px-8 py-2 hover:bg-blue-800 transition-all ease-linear duration-150">Daftar</button>
+                    </div>
+                </li>
+            )
+        }
+    }
     return (
         <header className="absolute w-full transition-all ease-in-out duration-300 ">
             <nav className="container text-white flex justify-between md:justify-around items-center h-max max-w-full">
@@ -35,12 +60,7 @@ const Header = () => {
                                 Kontak
                             </li>
                         </Link>
-                        <li className="font-semibold">
-                            <div className="flex gap-8">
-                                <button type="button" onClick={()=> router.push('/login')} className="border-2 border-blue-900 px-8 py-2 hover:bg-blue-800 transition-all ease-linear duration-150">Masuk</button>
-                                <button type="button" onClick={()=> router.push('/register')} className="bg-blue-800/90 px-8 py-2 hover:bg-blue-800 transition-all ease-linear duration-150">Daftar</button>
-                            </div>
-                        </li>
+                        {showSession()}
                     </ul>
                 </div>
             </nav>

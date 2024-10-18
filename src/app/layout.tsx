@@ -5,6 +5,7 @@ import Header from "@/components/fragments/Header"
 import Footer from "@/components/fragments/Footer"
 import { usePathname } from "next/navigation";
 import ArrowBack from "@/components/UI/ArrowBack";
+import { Provider } from "./provider";
 
 const disableHeaderFooter = ["/login", "/register"]
 // export const metadata: Metadata = {
@@ -20,13 +21,13 @@ export default function RootLayout({
   const pathname = usePathname();
   return (
     <html lang="en" className="overflow-x-hidden">
-      <body>
-        {!disableHeaderFooter.includes(pathname) ? <Header /> : <ArrowBack/>}
-
-        {children}
-        {!disableHeaderFooter.includes(pathname) && <Footer />}
-
-      </body>
+      <Provider>
+        <body>
+          {!disableHeaderFooter.includes(pathname) ? <Header /> : <ArrowBack />}
+          {children}
+          {!disableHeaderFooter.includes(pathname) && <Footer />}
+        </body>
+      </Provider>
     </html>
   );
 }
