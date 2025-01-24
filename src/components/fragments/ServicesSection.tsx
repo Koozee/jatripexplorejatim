@@ -1,3 +1,6 @@
+import Image from "next/image"
+import Link from "next/link"
+
 const ServicesSection = ()=>{
     return(
         <section className="mt-10 px-5 md:px-28">
@@ -11,26 +14,29 @@ const ServicesSection = ()=>{
                     perjalanan Anda menuju pengalaman wisata yang mengesankan.</h2>
             </div>
             <div className="flex flex-col md:flex-row gap-5 py-10">
+
                 <div className="flex flex-col items-center text-center">
-                    <a href="/src/views/carhire.html">
-                        <img className="hover:animate-rotate-y" src="/img/icons/car-wash.png" alt=""/>
-                    </a>
+                    <Link href="/carhire">
+                        <Image className="hover:animate-rotate-y" src="/img/icons/car-wash.png" alt="" width={100} height={100}/>
+                    </Link>
                     <p className="text-xl font-medium py-5">Car Hire</p>
                     <p className="text-gray-600">Jelajahi Jawa Timur dengan kenyamanan dan fleksibilitas, memilih dari
                         berbagai jenis mobil
                         yang sesuai dengan gaya perjalanan Anda.</p>
                 </div>
+
                 <div className="flex flex-col items-center text-center">
-                    <a href="/src/views/packagetrip.html">
-                        <img className="hover:animate-rotate-y" src="/img/icons/luggage.png" alt=""/>
-                    </a>
+                    <Link href="/src/views/packagetrip.html">
+                        <Image className="hover:animate-rotate-y" src="/img/icons/luggage.png" alt="" width={100} height={100}/>
+                    </Link>
                     <p className="text-xl font-medium py-5">Package Trip</p>
                     <p className="text-gray-600">Pilihlah paket liburan eksklusif Jatrip, kami menyediakan
                         paket liburan yang disesuaikan dengan kebutuhan dan anggaran Anda.</p>
                 </div>
+
                 <div className="flex flex-col items-center text-center">
-                    <img  className="cursor-pointer hover:animate-rotate-y"
-                        src="/img/icons/bot.png" alt=""/>
+                    <Image className="cursor-pointer hover:animate-rotate-y"
+                        src="/img/icons/bot.png" alt="" width={100} height={100}/>
                     <p className="text-xl font-medium py-5">Chat Bot Assistant</p>
                     <p className="text-gray-600">Dapatkan bantuan langsung dan jawaban cepat atas pertanyaan Anda dengan
                         bantuan chatbot assistant

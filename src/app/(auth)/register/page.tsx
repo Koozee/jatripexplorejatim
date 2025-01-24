@@ -3,35 +3,42 @@ import { FormEvent, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { register } from "@/actions/register";
+import Image from "next/image";
 
 const RegisterPage = () => {
-    // const [email, setEmail] = useState('');
-    // const [username, setUsername] = useState('');
-    // const [password, setPassword] = useState('');
-    const [error, setError] = useState<string>();
+    const [password, setPassword] = useState('');
+    const [rePassword, setRePassword] = useState('');
+    const [res, setRes] = useState<string>();
     const router = useRouter();
     const ref = useRef<HTMLFormElement>(null);
 
     const handleSubmit = async (formData: FormData) => {
-        const r = await register({
+        if (password !== rePassword ) {
+            setRes("Password Tidak Sama!")
+            return false;
+        }
+        const reg = await register({
             email: formData.get("email"),
             password: formData.get("password"),
-            name: formData.get("name"),
+            username: formData.get("username"),
         });
         ref.current?.reset();
-        if (r?.error) {
-            setError(r.error);
+        setPassword("");
+        setRePassword("");
+        if (reg?.error) {
+            setRes(reg.error);
             return;
         } else {
-            return router.push("/login");
+            setRes("Akun telah berhasil terdaftar, silahkan login!");
+            return router.push("/register");
         }
     };
 
     return (
-        <main className="bg-fixed bg-cover w-full h-full flex flex-col items-center justify-center px-4" style={{ backgroundImage: "url('/img/bg-auth.jpg')" }}>
+        <main className="bg-fixed bg-cover w-full h-screen flex flex-col items-center justify-center px-4" style={{ backgroundImage: "url('/img/bg-auth.jpg')" }}>
             <div className="max-w-md w-full text-white space-y-5">
                 <div className="text-center pb-2">
-                    <img src="./img/logonya.png" className="mx-auto w-56" />
+                    <Image alt="logonnya" src="/img/logonya.png" className="mx-auto w-56" />
                     <div className="mt-1">
                         <h3 className="text-2xl font-bold sm:text-3xl">Register New Account Traveller</h3>
                     </div>
@@ -40,7 +47,7 @@ const RegisterPage = () => {
                     action={handleSubmit}
                     className="space-y-5"
                 >
-                    {error && <div className="">{error}</div>}
+                    {res && <div className="">{res}</div>}
                     <div>
                         <label className="font-medium">
                             Email
@@ -48,7 +55,7 @@ const RegisterPage = () => {
                         <input
                             type="email"
                             required
-                            className="w-full mt-2 px-3 py-2 font-medium bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg" name="email"
+                            className="w-full mt-2 px-3 py-2 font-medium bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg" name="email" 
                         />
                     </div>
                     <div>
@@ -58,7 +65,7 @@ const RegisterPage = () => {
                         <input
                             type="text"
                             required
-                            className="w-full mt-2 px-3 py-2 font-medium bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg" name="name"
+                            className="w-full mt-2 px-3 py-2 font-medium bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg" name="username" 
                         />
                     </div>
                     <div>
@@ -68,19 +75,19 @@ const RegisterPage = () => {
                         <input
                             type="password"
                             required
-                            className="w-full mt-2 px-3 py-2 font-medium bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg" name="password"
+                            className="w-full mt-2 px-3 py-2 font-medium bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg" name="password" value={password} onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-                    {/* <div>
+                    <div>
                         <label className="font-medium">
                             Confirm Password
                         </label>
                         <input
                             type="password"
                             required
-                            className="w-full mt-2 px-3 py-2 font-medium bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                            className="w-full mt-2 px-3 py-2 font-medium bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg" value={rePassword} onChange={(e) => setRePassword(e.target.value)}
                         />
-                    </div> */}
+                    </div>
                     <button
                         className="w-full px-4 py-2 text-white font-medium bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-600 rounded-lg duration-150"
                     >

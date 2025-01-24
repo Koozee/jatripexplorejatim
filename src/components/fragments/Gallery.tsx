@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image";
 import { useState } from "react";
 
 const Gallery = () => {
@@ -97,7 +98,7 @@ const Gallery = () => {
                                         className={`transition-all duration-200 ease-in-out absolute h-10 w-10 left-1/2 -top-3 transform -translate-x-1/2 ${activeIndex === index.id ? `-translate-y-full` : `-translate-y-1/2 invisible`}`}
                                         fill="#ff0000" height="64px" width="64px" version="1.1"
                                         xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
-                                        viewBox="0 0 512 512" enable-background="new 0 0 512 512" xmlSpace="preserve"
+                                        viewBox="0 0 512 512" enableBackground="new 0 0 512 512" xmlSpace="preserve"
                                         stroke="#ff0000">
                                         <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                                         <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
@@ -123,18 +124,18 @@ const Gallery = () => {
                             <div key={index.id}
                                 className={`transition container flex-col-reverse grid-cols-2 gap-10 ${activeIndex === index.id ? `flex lg:grid` : `hidden`}`}>
                                 <div className="flex flex-col items-center w-full mx-auto md:grid grid-cols-2 gap-10">
-                                    <img className="w-full max-w-lg rounded-lg h-full" src={index.img1}
-                                        alt="" />
-                                    <img className="w-full max-w-lg rounded-lg h-full" src={index.img2}
-                                        alt="" />
-                                    <img className="w-full max-w-lg rounded-lg h-full" src={index.img3}
-                                        alt="" />
-                                    <img className="w-full max-w-lg rounded-lg h-full" src={index.img4}
-                                        alt="" />
-                                    <img className="w-full max-w-lg rounded-lg h-full" src={index.img5}
-                                        alt="" />
-                                    <img className="w-full max-w-lg rounded-lg h-full" src={index.img6}
-                                        alt="" />
+                                    <Image width={300} height={300} src={index.img1}
+                                        alt={index.location} />
+                                    <Image width={300} height={300} src={index.img2}
+                                        alt={index.location} />
+                                    <Image width={300} height={300} src={index.img3}
+                                        alt={index.location} />
+                                    <Image width={300} height={300} src={index.img4}
+                                        alt={index.location} />
+                                    <Image width={300} height={300} src={index.img5}
+                                        alt={index.location} />
+                                    <Image width={300} height={300} src={index.img6}
+                                        alt={index.location} />
                                 </div>
                                 <div className="flex flex-col">
                                     <div className="relative text-center flex flex-col items-center">
@@ -156,7 +157,7 @@ const Gallery = () => {
                                             </a>
                                         </button>
 
-                                        <img className=" top-1/2" src={index.thumbnails} alt={index.location} />
+                                        <Image width={500} height={500} src={index.thumbnails} alt={index.location} />
                                     </div>
                                 </div>
                             </div>

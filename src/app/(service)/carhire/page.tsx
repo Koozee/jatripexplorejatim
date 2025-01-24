@@ -1,4 +1,6 @@
-const CarHirePage = () => {
+import Image from "next/image"
+
+export default function CarHirePage() {
     return (
         <main>
             <article className="bg-cover bg-fixed bg-no-repeat w-screen h-screen flex  justify-center md:py-96"
@@ -41,34 +43,35 @@ const CarHirePage = () => {
                     <h2 className="text-2xl font-semibold">Cara Rental Mobil?</h2>
                     <div className="mt-10 flex flex-col lg:flex-row justify-between items-center gap-7">
                         <div className="w-full flex flex-col items-center text-center">
-                            <img className="w-full md:w-4/5 h-[300px] md:h-[400px]" src="img/icons/searchcar.svg" alt="" />
+                            <Image width={320} height={320} className="w-full md:w-4/5 h-[300px] md:h-[400px]" src="/img/icons/searchcar.svg" alt="" />
                             <p className="pt-5 text-2xl font-semibold text-cyan-500">1. Cari</p>
                             <p className="pt-5 font-semibol">Cari Mobil yang sesuai dengan tujuan Anda</p>
                         </div>
                         <div className="w-full flex flex-col items-center text-center">
-                            <img className="w-full md:w-4/5 h-[300px] md:h-[400px]" src="img/icons/selectcar.svg" alt="" />
+                            <Image width={320} height={320} className="w-full md:w-4/5 h-[300px] md:h-[400px]" src="/img/icons/selectcar.svg" alt="" />
                             <p className="pt-5 text-2xl font-semibold text-cyan-500">2. Pilih</p>
                             <p className="pt-5 ">Pilih Mobil terbaik yang cocok untuk Anda</p>
                         </div>
                         <div className="w-full flex flex-col items-center text-center">
-                            <img className="w-full md:w-4/5 h-[300px] md:h-[400px]" src="img/icons/usecar.svg" alt="" />
+                            <Image width={320} height={320} className="w-full md:w-4/5 h-[300px] md:h-[400px]" src="/img/icons/usecar.svg" alt="" />
                             <p className="pt-5 text-2xl font-semibold text-cyan-500">3. Ready</p>
                             <p className="pt-5 ">Mobil kami siap untuk menjemput dan dipakai</p>
                         </div>
                     </div>
                 </div>
+                
                 <div className="bg-white bg-opacity-80 p-5 rounded-lg">
                     <div className="w-max">
                         <p className="text-start font-extrabold py-5">Pilih Jenis Mobil?</p>
                         <div className="flex items-center justify-between w-full">
-                            <div className="bg-blue- flex items-center border-2 border-black rounded-tl-md rounded-bl-md p-3">
-                                <img src="img/icons/cars-filter.cf7c3fd.png" alt="" />
+                            <button className="bg-blue- flex items-center border-2 border-black rounded-tl-md rounded-bl-md p-3">
+                                <Image width={96} height={96} src="/img/icons/cars-filter.cf7c3fd.png" alt="" />
                                 <p className="pl-2">City Car</p>
-                            </div>
-                            <div className="flex items-center border-2 border-black rounded-tr-md rounded-br-md p-3">
-                                <img src="img/icons/vans-trucks-filter.ae42ce1.png" alt="" />
+                            </button>
+                            <button className="flex items-center border-2 border-black rounded-tr-md rounded-br-md p-3">
+                                <Image width={96} height={96} src="/img/icons/vans-trucks-filter.ae42ce1.png" alt="" />
                                 <p className="pl-2">Mini Bus & Vans</p>
-                            </div>
+                            </button>
                         </div>
                     </div>
 
@@ -101,7 +104,7 @@ const CarHirePage = () => {
                                 </div>
                                 <div className="flex flex-col items-center gap-2">
                                     <label aria-hidden="true" htmlFor="pickupdate">Tanggal Pick-Up</label>
-                                    <input className="text-center" type="date" name="pickupdate" id="pickupdate"/>
+                                    <input className="text-center" type="date" name="pickupdate" id="pickupdate" />
                                 </div>
                             </div>
 
@@ -138,7 +141,7 @@ const CarHirePage = () => {
                                 </div>
                                 <div className="flex flex-col items-center gap-2">
                                     <label aria-hidden="true" htmlFor="pickupdate">Tanggal Drop-Off</label>
-                                    <input className="text-center" type="date" name="dropoffdate" id="dropoffdate"/>
+                                    <input className="text-center" type="date" name="dropoffdate" id="dropoffdate" />
                                 </div>
                             </div>
 
@@ -175,11 +178,11 @@ const CarHirePage = () => {
                     <p className="text-center text-transparent font-bold underline decoration-yellow-400 decoration-4 mb-10">
                         ---------------------</p>
 
-                     {/* innova reborn car  */}
+                    {/* innova reborn car  */}
                     <div className="flex flex-col lg:flex-row justify-center items-center gap-5 px-3">
                         <div className="md:w-1/2 xl:w-1/4 px-10 border rounded-md">
                             <h3 className="text-center py-10">INNOVA REBORN (7 Seat)</h3>
-                            <img className="" src="img/car/toyota-new-kijang-innova.png" alt="" />
+                            <Image width={640} height={640} className="" src="/img/car/toyota-new-kijang-innova.png" alt="" />
                         </div>
 
                         <div className="w-full xl:w-3/4">
@@ -293,7 +296,7 @@ const CarHirePage = () => {
                     <div className="mt-10 flex flex-col lg:flex-row justify-center items-center gap-5 px-3">
                         <div className="md:w-1/2 xl:w-1/4 px-10 border rounded-md">
                             <h3 className="text-center py-10">AVANZA VELOZ (7 Seat)</h3>
-                            <img className="" src="img/car/3-veloz-platinum-white-pearl.png" alt="" />
+                            <Image width={640} height={640} className="" src="/img/car/3-veloz-platinum-white-pearl.png" alt="" />
                         </div>
 
                         <div className="w-full xl:w-3/4">
@@ -408,7 +411,7 @@ const CarHirePage = () => {
                     <div className="mt-10 flex flex-col lg:flex-row justify-center items-center gap-5 px-3">
                         <div className="md:w-1/2 xl:w-1/4 px-10 border rounded-md">
                             <h3 className="text-center py-10">HIACE MINI BUS (16 Seat)</h3>
-                            <img className="" src="img/car/2 hiace premio white.png" alt="" />
+                            <Image width={640} height={640} className="" src="/img/car/2 hiace premio white.png" alt="" />
                         </div>
 
                         <div className="w-full xl:w-3/4">
@@ -525,7 +528,7 @@ const CarHirePage = () => {
             {/* terms and conditions  */}
             <article id="terms" className="z-50 invisible scale-0 bg-opacity-50 w-screen h-screen flex items-center transition-transform ease-linear duration-300 fixed bottom-1/2 right-1/2 translate-y-1/2 translate-x-1/2">
                 <div className="h-screen w-screen md:h-max md:w-[60vw] mx-auto bg-slate-50 px-5 md:p-10 rounded-md flex flex-col items-center">
-                    <img className="mx-auto w-1/2 md:w-2/5" src="img/logonya.png" alt="" />
+                    <Image width={640} height={640} className="mx-auto w-1/2 md:w-2/5" src="/img/logonya.png" alt="" />
                     <p>Terms And Conditions :</p>
                     <ul className="py-5">
                         <li className="py-1 flex gap-3">
@@ -604,5 +607,3 @@ const CarHirePage = () => {
         </main>
     )
 }
-
-export default CarHirePage

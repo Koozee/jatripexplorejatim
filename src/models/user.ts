@@ -4,7 +4,7 @@ export interface UserDocument {
     _id: string;
     email: string;
     password: string;
-    name: string;
+    username: string;
     phone: string;
     image: string;
     createdAt: Date;
@@ -21,9 +21,9 @@ const UserSchema = new Schema<UserDocument>({
             "Email is invalid",
         ],
     },
-    name: {
+    username: {
         type: String,
-        required: [true, "Name is required"]
+        required: [true, "Username perlu dimasukkan!"]
     },
     password: {
         type: String,

@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { signOut, useSession } from "next-auth/react";
+import Image from "next/image";
 const Header = () => {
     const router = useRouter()
     const pathname = usePathname()
@@ -34,9 +35,9 @@ const Header = () => {
     return (
         <header className="absolute w-full transition-all ease-in-out duration-300 ">
             <nav className="container text-white flex justify-between md:justify-around items-center h-max max-w-full">
-                <Link href="/">
-                    <img className="w-[30vw] md:w-[20vw] lg:h-[190px]" src="/img/logonya.png"
-                        alt="" />
+                <Link href={"/"}>
+                    <Image width={264} height={264} src="/img/logonya.png"
+                        alt="logonya" />
                 </Link>
                 <div id="navmenu"
                     className="absolute z-50 hidden md:block top-[15vw] w-screen md:relative md:top-0 md:w-max bg-blue-500 md:bg-transparent px-4">

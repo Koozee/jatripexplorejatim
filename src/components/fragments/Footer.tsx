@@ -1,42 +1,43 @@
 import { Mail, PhoneCall } from "lucide-react"
+import Image from "next/image"
 
 const Footer = () => {
     return (
         <footer id="footer"
             className=" poppins w-full mt-16 border-t-2 bg-gradient-to-l from-blue-400 via-blue-600 to-blue-700">
-            <div className="container mx-auto">
+            {/* <div className="container mx-auto">
                 <div className="container mx-auto border-b-2 py-5 px-4">
                     <div className="flex flex-col lg:flex-row justify-around items-center">
-                        <img className="w-[25%] md:w-[16%]" src="img/logonya.png" alt="" />
+                        <Image className="w-[25%] md:w-[16%]" src="/img/logonya.png" alt="" />
                         <p className="text-base lg:text-lg text-center font-medium py-5 text-white">Explore Jawa Timur With
                             Full Memories
                         </p>
                         <div className="flex items-center gap-5">
                             <div className="relative group">
                                 <a className="group-hover:bg-opacity-75 transition-all"
-                                    href="https://www.instagram.com/nikoachmad_koo?igsh=cHkxMzBrdWVydWI="><img
-                                        className="w-11/12" src="img/icons/logos_instagram.svg" alt="igicn" /></a>
+                                    href="https://www.instagram.com/nikoachmad_koo?igsh=cHkxMzBrdWVydWI="><Image
+                                        className="w-11/12" src="/img/icons/logos_instagram.svg" alt="igicn" /></a>
                                 <p
                                     className="absolute -top-2/3 left-0 text-white bg-slate-600 opacity-0 group-hover:opacity-100 transition-all">
                                     Instagram</p>
                             </div>
                             <div className="relative group">
                                 <a className="group-hover:bg-opacity-75 transition-all"
-                                    href="https://www.facebook.com/niko.achmad.3?mibextid=kFxxJD"><img className="w-11/12"
+                                    href="https://www.facebook.com/niko.achmad.3?mibextid=kFxxJD"><Image className="w-11/12" fill
                                         src="img/icons/logos_facebook.svg" alt="fbicn" /></a>
                                 <p
                                     className="absolute -top-2/3 left-0 text-white bg-slate-600 opacity-0 group-hover:opacity-100 transition-all">
                                     Facebook</p>
                             </div>
                             <div className="relative group">
-                                <a className="group-hover:bg-opacity-75 transition-all" href="#"><img className="w-11/12"
+                                <a className="group-hover:bg-opacity-75 transition-all" href="#"><Image className="w-11/12" fill
                                     src="img/icons/logos_youtube-icon.svg" alt="yticn" /></a>
                                 <p
                                     className="absolute -top-2/3 left-0 text-white bg-slate-600 opacity-0 group-hover:opacity-100 transition-all">
                                     Youtube</p>
                             </div>
                             <div className="relative group">
-                                <a className="group-hover:bg-opacity-75 transition-all" href="#"><img className="w-11/12"
+                                <a className="group-hover:bg-opacity-75 transition-all" href="#"><Image className="w-11/12" fill
                                     src="img/icons/logos_tiktok-icon.svg" alt="tticn" /></a>
                                 <p
                                     className="absolute -top-2/3 left-0 text-white bg-slate-600 opacity-0 group-hover:opacity-100 transition-all">
@@ -117,7 +118,7 @@ const Footer = () => {
                 <div className="poppins container mx-auto py-10">
                     <p className="px-5 md:text-lg font-extrabold text-white">© Copyright 2024 - JATRIP</p>
                 </div>
-            </div>
+            </div> */}
         </footer>
     )
 }
